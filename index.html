@@ -1,29 +1,133 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="utf-8">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Portfolio</title>
 </head>
-
 <body>
-	<header>
+    <header>
         <nav>
             <ul>
-                <li><a href="index.html" data-key="about-me">About Me</a></li>
-                <li><a href="studies.html" data-key="studies">Studies</a></li>
-                <li><a href="projects.html#academic" data-key="academic-projects">Academic Projects</a></li>
-                <li><a href="projects.html#personal" data-key="personal-projects">Personal Projects</a></li>
+                <li id="about-me-li" class="nav-item" data-key="about-me">À propos de moi</li>
+                <li id="studies-li" class="nav-item" data-key="studies">Études</li>
+                <li id="academic-projects-li" class="nav-item" data-key="academic-projects">Projets académiques</li>
+                <li id="personal-projects-li" class="nav-item" data-key="personal-projects">Projets personnels</li>
             </ul>
         </nav>
-        <button id="lang-switch">Français</button>
+        <div>
+            <button id="lang-switch">English</button>
+            <button id="dark-mode-toggle">Mode Sombre</button>
+        </div>
     </header>
     <main>
-        <h1 data-key="welcome">Welcome to My Portfolio</h1>
-        <p data-key="intro">This is a showcase of my studies and projects.</p>
+        <section id="about-me-page" class="content-section">
+            <h1 data-key="about-me-title">Bienvenue sur mon Portfolio</h1>
+            <p data-key="about-me-intro">Je m'appelle Julien Bianchetti et je suis passionné d'informatique.<br>
+            Cette page web regroupe mon parcours dans l'informatique ainsi que les divers projets que j'ai pu développer.</p>
+            <p data-key="about-me-contact"> Lien GitHub : <a href="https://github.com/JulienSluggly">JulienSluggly</a> et <a href="https://github.com/Sluggly">Sluggly</a><br>
+            Adresse Mail : <a href="mailto:bianchetti.jul@gmail.com">bianchetti.jul@gmail.com</a></p>
+        </section>
+        <section id="studies-page" class="content-section">
+            <h1 data-key="studies-page-title">Mon parcours d'études</h1>
+            <h2 data-key="studies-page-these-title">2023 - Maintenant : Thèse CIFRE avec l'entreprise XD Productions</h2>
+            <p data-key="studies-page-these">
+            Sujet de thèse : Textures physiques réalistes par assemblages super-résolus d’images multi points de vue<br>
+            Directeurs de thèse : Frédéric Cordier, Christophe Cudel<br>
+            Encadrants : Sophie Kohler, Yvan Maillot, Cédric Niquin<br>
+            Membres du comité : Alexandre Meyer, Lionel Garnier</p>
+            <h2 data-key="studies-page-master-title">2023 - Master Informatique et Mobilité</h2>
+            <p data-key="studies-page-master">
+            Université de Haute Alsace, Mulhouse</p>
+            <h2 data-key="studies-page-stage-title">2022-2023 - Stage de recherche</h2>
+            <p data-key="studies-page-stage">
+            J’ai effectué un stage de recherche à l’Université de Haute-Alsace à Mulhouse
+            au laboratoire IRIMAS dans le but de participer à un concours, le Graph Drawing Challenge.<br>
+            J’ai développé des algorithmes d'optimisation géométrique en C++ ainsi
+            qu’une interface graphique interactive utilisant OpenGL.<br>
+            Cela a permis de remporter les concours des années 2022 et 2023.</p>
+            <img src="src/GD2022.png" alt="Graph Drawing Challenge 2022" class="portfolio-image"/>
+            <img src="src/GD2023.png" alt="Graph Drawing Challenge 2023" class="portfolio-image"/>
+            <h2 data-key="studies-page-licence-title">2020 - Licence Informatique</h2>
+            <p data-key="studies-page-licence">Université de Strasbourg</p>
+            <h2 data-key="studies-page-langues-title">Langues</h2>
+            <p data-key="studies-page-langues">Anglais niveau C1, Score TOEIC : 980<br>
+            Allemand niveau A2-B1</p>
+        </section>
+        <section id="academic-projects-page" class="content-section">
+            <h1 data-key="academic-projects-intro">Projets d'études</h1>
+            <h2 data-key="academic-projects-graphe-title">2023 - Application d'optimisation de graphes</h2>
+            <p data-key="academic-projects-graphe">
+            Pour la participation aux Graph Drawing Challenge de 2022 et 2023, j'ai développé un outil
+            permettant de visualiser et d'exécuter divers algorithmes d'optimisation sur les graphes.<br>
+            Celui-ci est programmé en C++ et utilise OpenGL. Divers algorithmes ont été développés en utilisant
+            le multi-threading ainsi que l'utilisation de CUDA.</p>
+            <img src="src/graphe1.gif" alt="Graph Drawing" class="portfolio-image"/>
+            <img src="src/graphe3.gif" alt="Graph Drawing" class="portfolio-image"/>
+            <br>
+            <img src="src/graphe2.gif" alt="Graph Drawing" class="portfolio-image"/>
+            <img src="src/graphe4.gif" alt="Graph Drawing" class="portfolio-image"/>
+            <h2 data-key="academic-projects-ar-title">2022 - Projet de réalité augmentée</h2>
+            <p data-key="academic-projects-ar">
+            J’ai utilisé OpenCV pour développer une application C++ permettant à un
+            utilisateur ayant un téléphone portable d'interagir avec une construction
+            holographique.<br> L’application représentait un digicode et a été développée
+            dans le cadre de prévention contre la covid-19.</p>
+            <h2 data-key="academic-projects-qr-title">2022 - Application QR Code</h2>
+            <p data-key="academic-projects-qr">
+            J’ai développé un programme utilisant Cordova, compatible navigateur et
+            Android, permettant de générer et de lire des QR Codes personnalisés via
+            une capture d’écran ou un scan avec un téléphone.</p>
+            <h2 data-key="academic-projects-v2v-title">2021 - Application de simulation de communication véhicule à véhicule</h2>
+            <p data-key="academic-projects-v2v">
+            J'ai développé en C++ avec Qt Creator une application permettant de simuler
+            les déplacements et la communication de véhicule à véhicule dans la ville de Mulhouse
+            en utilisant les données d'OpenStreetMap.</p>
+            <img src="src/v2v.gif" alt="V2V" class="portfolio-image"/>
+            <h2 data-key="academic-projects-integrateur-title">2019-2020 - Projet Intégrateur</h2>
+            <p data-key="academic-projects-integrateur">
+            Durant ma dernière année de licence à l’université, j’ai participé au
+            développement d’un jeu vidéo adapté du jeu de société Sushi Go!<br>
+            J’ai développé la partie backend serveur en utilisant Node.js pour permettre de
+            communiquer avec des clients sur différentes plateformes : Navigateur
+            Web et Client Unity.<br>
+            J’étais également chargé du traitement des messages
+            du serveur sur les différents clients ainsi que de la mise en œuvre de
+            mesures de sécurité pour éviter la triche, le brute force ou l’injection de
+            données.</p>
+            <div class="video-container">
+                <video controls>
+                    <source src="src/sushiGoTrailer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls>
+                    <source src="src/sushiGoExplications.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+        <section id="personal-projects-page" class="content-section">
+            <h1 data-key="personal-projects-intro">Projets Personnels</h1>
+            <h2 data-key="personal-projects-wowdle-title">Wowdle - Jeu navigateur</h2>
+            <p data-key="personal-projects-wowdle">J'ai développé un jeu sur navigateur basé sur le fameux <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a>.<br>
+            Chaque jour, un personnage du jeu World of Warcraft est tiré au hasard et le but du jeu est de deviner le personnage à partir d'indices.<br>
+            Le jeu est développé en utilisant les langages HTML, CSS et JavaScript.<br>
+            Le jeu est disponible à cette adresse : <a href="https://sluggly.github.io/Wowdle">https://sluggly.github.io/Wowdle</a><br></p>
+            <img src="src/wowdle.png" alt="Wowdle" class="portfolio-image"/>
+            <h2 data-key="personal-projects-minecraft-title">Mod Minecraft - Time Mercenaries</h2>
+            <p data-key="personal-projects-minecraft">
+            Le jeu Minecraft permet le développement de mods avec l'utilisation de modloaders.<br>
+            En utilisant Minecraft Forge Modloader, j'ai développé en Java le mod Time Mercenaries pour la version 1.20.1 du jeu.<br>
+            Ce mod est disponible sur <a href="https://www.curseforge.com/minecraft/mc-mods/time-mercenaries">Curseforge</a> qui répertorie une grande partie des mods du jeu.</p>
+            <img src="src/timemerc.png" alt="Time Mercenaries" class="portfolio-image"/>
+            <h2 data-key="personal-projects-mxl-title">MedianXL File Manager - Application de gestion de fichiers</h2>
+            <p data-key="personal-projects-mxl">J'ai développé en utilisant le C++ avec Qt Creator une application permettant de gérer les fichiers du jeu Median XL.<br>
+            Cet outil permet de rapidement gérer la liste de personnages (ajout/suppression) et permet de faire des backups.</p>
+            <img src="src/mxl.png" alt="Median XL" class="portfolio-image"/>
+        </section>
     </main>
-	<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

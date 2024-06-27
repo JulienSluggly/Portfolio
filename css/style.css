@@ -1,14 +1,29 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: #f8f8f8;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+header.dark-mode {
+    background-color: #1e1e1e;
 }
 
 nav ul {
@@ -20,16 +35,15 @@ nav ul {
 
 nav ul li {
     margin-right: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #fff;
+    transition: background-color 0.3s;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
+nav ul li.active, nav ul li:hover {
+    background-color: #444;
+    border-radius: 5px;
 }
 
 button {
@@ -39,8 +53,66 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+button.dark-mode {
+    background-color: #444;
+}
+
+.portfolio-image {
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    margin: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+.content-section {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.content-section.dark-mode {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+#about-me-page, #studies-page, #academic-projects-page, #personal-projects-page {
+    display: none;
+}
+
+.video-container video {
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    margin: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ddd;
+}
+
+.dark-mode h2 {
+    color: #e0e0e0;
+    border-bottom: 2px solid #444;
 }
