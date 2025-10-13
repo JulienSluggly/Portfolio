@@ -38,25 +38,15 @@ function loadLanguage(file) {
                 element.innerHTML = data[key];
             });
         })
-        .catch(error => {
-            console.error('Error loading language file:', error);
-        });
+        .catch(error => { console.error('Error loading language file:', error); });
 }
 
 var currentSection = 'about-me-page';
 
-document.getElementById('about-me-li').addEventListener('click', () => {
-    showSection('about-me-page');
-});
-document.getElementById('studies-li').addEventListener('click', () => {
-    showSection('studies-page');
-});
-document.getElementById('academic-projects-li').addEventListener('click', () => {
-    showSection('academic-projects-page');
-});
-document.getElementById('personal-projects-li').addEventListener('click', () => {
-    showSection('personal-projects-page');
-});
+document.getElementById('about-me-li').addEventListener('click', () => { showSection('about-me-page'); });
+document.getElementById('studies-li').addEventListener('click', () => { showSection('studies-page'); });
+document.getElementById('academic-projects-li').addEventListener('click', () => { showSection('academic-projects-page'); });
+document.getElementById('personal-projects-li').addEventListener('click', () => { showSection('personal-projects-page'); });
 
 function showSection(section) {
     document.getElementById(currentSection).style.display = "none";
@@ -66,24 +56,34 @@ function showSection(section) {
 }
 
 function updateNavHighlight(section) {
-    document.querySelectorAll('nav ul li').forEach(li => {
-        li.classList.remove('active');
-    });
+    document.querySelectorAll('nav ul li').forEach(li => { li.classList.remove('active'); });
     document.getElementById(section.replace('-page', '-li')).classList.add('active');
 }
 
-// Initial call to display the first section and set active class
 showSection(currentSection);
 
-// Check localStorage for dark mode preference
 if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
-    document.querySelectorAll('.content-section').forEach(section => {
-        section.classList.add('dark-mode');
-    });
-    document.querySelectorAll('header, button, nav ul li').forEach(element => {
-        element.classList.add('dark-mode');
-    });
+    document.querySelectorAll('.content-section').forEach(section => { section.classList.add('dark-mode'); });
+    document.querySelectorAll('header, button, nav ul li').forEach(element => { element.classList.add('dark-mode'); });
     if (lang === 'en') { darkModeToggle.textContent = 'Light Mode'; }
     else if (lang === 'fr') {  darkModeToggle.textContent = 'Mode Clair'; }
 }
+
+async function main() {
+    initWorker();
+    initOpenGLPrograms();
+    LoadFootHDRelightGaussianModel();
+    canvas.addEventListener('wheel', handleZoom, { passive: false });
+
+    const frame = () => {
+        updateCarouselCamera();
+        updateView();
+        renderGaussians(gl,viewMatrix);
+        requestAnimationFrame(frame);
+    };
+
+    frame();
+}
+
+main();
